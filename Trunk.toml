@@ -1,0 +1,8 @@
+# https://github.com/thedodd/trunk/blob/master/Trunk.toml
+[serve]
+# The address to serve on.
+address = "127.0.0.1"
+# The port to serve on.
+port = 9988
+# Open a browser tab once the initial build is complete.
+open = true
