@@ -5,6 +5,8 @@ use std::rc::Rc;
 use cfg_if::cfg_if;
 use wasm_bindgen::prelude::*;
 use crate::wasm_bindgen::JsCast;
+use crate::core::{ sheet };
+pub mod core;
 
 cfg_if! {
     if #[cfg(feature = "wee_alloc")] {
@@ -21,6 +23,8 @@ extern "C" {
 
 #[wasm_bindgen(start)]
 pub fn run() {
+    let sheet = sheet::Sheet::new();
+    println!("{:?}", sheet);
     let colors = vec!["#F4908E", "#F2F097", "#88B0DC", "#F7B5D1", "#53C4AF", "#FDE38C"];
     let window = web_sys::window().expect("should have a window in this context");
     let document = window.document().expect("window should have a document");
